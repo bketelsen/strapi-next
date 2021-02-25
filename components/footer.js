@@ -37,7 +37,7 @@ const Footer = (props) => {
 
                 </div>
                 <div className="mt-8 md:mt-0 md:order-1">
-                    <p className="text-center text-base text-gray-400">
+                    <p className="text-center text-base text-gray-800">
                         &copy; 2020 Brian Ketelsen. All rights reserved.
       </p>
                 </div>
