@@ -11,11 +11,11 @@ const Card = ({ category,article }) => {
     <div className="flex-1 bg-white p-6 flex flex-col justify-between">
       <div className="flex-1">
         <p className="text-sm font-medium text-indigo-600">
-          <a href={`/category/${category.slug}`} className="hover:underline">
+          <a href={`/${category.slug}`} className="hover:underline">
            {category.name} 
           </a>
         </p>
-        <a href={`/article/${article.slug}`} className="block mt-2">
+        <a href={`/${category.slug}/${article.slug}`} className="block mt-2">
           <p className="text-xl font-semibold text-gray-900">
             {article.title}
           </p>

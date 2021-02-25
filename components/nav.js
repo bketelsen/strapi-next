@@ -27,7 +27,7 @@ const Navigation = (props) => {
                                 <a href="/" className={router.asPath === "/"?activeStyle:inactiveStyle}>Home</a>
                                 {categories.map((category) => {
                                     return (
-                                        <Link key={category.id} as={`/category/${category.slug}`} href="/category/[id]">
+                                        <Link key={category.id} as={`/${category.slug}`} href="/[id]">
                                             <a className={router.asPath.includes(category.slug)?activeStyle:inactiveStyle}>{category.name}</a>
                                         </Link>
                                     );
@@ -55,7 +55,7 @@ const Navigation = (props) => {
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     {categories.map((category) => {
                         return (
-                            <Link key={category.id} as={`/category/${category.slug}`} href="/category/[id]">
+                            <Link key={category.id} as={`/${category.slug}`} href="/[id]">
                                 <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{category.name}</a>
                             </Link>
                         );
