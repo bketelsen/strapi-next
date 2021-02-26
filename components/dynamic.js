@@ -1,11 +1,14 @@
 
 import React from "react";
 import Paragraph from "./custom/paragraph";
+import Code from "./custom/code";
+
 import DynamicImage from "./custom/dynamicimage";
 
 const Components = {
     "dynamic.paragraph": Paragraph,
     "dynamic.image": DynamicImage,
+    "dynamic.code": Code,
 };
 
 
