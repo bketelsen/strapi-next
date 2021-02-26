@@ -77,7 +77,7 @@ export async function getStaticPaths() {
 
   return {
     paths: articles.map((article) => `/${article.category.slug}/${article.slug}`) || [],
-    fallback: false,
+    fallback: true,
   };
 }
 
