@@ -2,7 +2,6 @@
 import { fetchAPI } from "../../lib/api";
 import Seo from "../../components/seo";
 import Articles from "../../components/articles";
-
 const Category = ({ category, categories }) => {
   const seo = {
     metaTitle: category.name,

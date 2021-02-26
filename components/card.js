@@ -6,7 +6,7 @@ const Card = ({ category,article }) => {
   return (
     <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
     <div className="flex-shrink-0">
-      <img className="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="" />
+      <ImageWrapper className="h-48 w-full object-cover" imageFromStrapi={article.image}/>
     </div>
     <div className="flex-1 bg-white p-6 flex flex-col justify-between">
       <div className="flex-1">
