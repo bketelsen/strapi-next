@@ -59,17 +59,17 @@ const Navigation = (props) => {
 
             <div className={isOpen ? "" : "hidden"} >
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="/" className={router.asPath === "/" ? mactiveStyle : minactiveStyle}>Home</a>
+                    <a href="/" onClick={() => setIsOpen(!isOpen)} className={router.asPath === "/" ? mactiveStyle : minactiveStyle}>Home</a>
 
                     {categories.map((category) => {
                         return (
                             <Link key={category.id} as={`/${category.slug}`} href="/[id]">
-                                <a className={router.asPath.includes(category.slug) ? mactiveStyle : minactiveStyle}>{category.name}</a>
+                                <a onClick={() => setIsOpen(!isOpen)} className={router.asPath.includes(category.slug) ? mactiveStyle : minactiveStyle}>{category.name}</a>
                             </Link>
                         );
                     })}
 
-                    <a href="/about" className={router.asPath === "/about" ? mactiveStyle : minactiveStyle}>About Me</a>
+                    <a href="/about" onClick={() => setIsOpen(!isOpen)} className={router.asPath === "/about" ? mactiveStyle : minactiveStyle}>About Me</a>
                 </div>
                 <div className="pt-4 pb-3 border-t border-gray-700">
                 </div>
