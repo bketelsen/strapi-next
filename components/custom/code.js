@@ -1,13 +1,15 @@
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vs } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+
 const Code = ({ block }) => {
 
     return (
-        <div key={block.id}>
-            <pre>
-                <code>
-                    {block.content}
-                </code>
-            </pre>
-        </div>
+
+        <SyntaxHighlighter language={block.language} wrapLines={true}
+            style={vs}>
+            {block.content}
+        </SyntaxHighlighter>
+
     );
 };
 
