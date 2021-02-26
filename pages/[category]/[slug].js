@@ -1,11 +1,10 @@
-import ReactMarkdown from "react-markdown";
+import Dynamic from "../../components/dynamic";
 import { fetchAPI } from "../../lib/api";
 import Seo from "../../components/seo";
 import { getStrapiMedia } from "../../lib/media";
 
 const Article = ({ article, categories }) => {
   const imageUrl = getStrapiMedia(article.image);
-
 
 
   return (
@@ -64,7 +63,7 @@ const Article = ({ article, categories }) => {
           </div>
 
           <div className="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
-            <ReactMarkdown source={article.content} escapeHtml={false} />
+          {article.dynamicContent.map(block => Dynamic(block))}
           </div>
         </div>
       </div>
