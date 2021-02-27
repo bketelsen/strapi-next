@@ -2,7 +2,6 @@ import Head from "next/head";
 import Link from "next/link";
 import Navigation from "../components/nav";
 import Footer from "../components/footer";
-
 const DefaultLayout = (props) => {
     return (
         <>

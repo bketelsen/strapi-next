@@ -1,57 +1,64 @@
 import React from "react";
 import Link from "next/link";
-import ImageWrapper from "./image";
+import Image from 'next/image'
 
-const Card = ({ category,article }) => {
+
+const Card = ({ article }) => {
   return (
     <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-    <div className="flex-shrink-0">
-      <ImageWrapper className="h-48 w-full object-cover" imageFromStrapi={article.image}/>
-    </div>
-    <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-      <div className="flex-1">
-        <p className="text-sm font-medium text-indigo-600">
-          <a href={`/${category.slug}`} className="hover:underline">
-           {category.name} 
-          </a>
-        </p>
-        <a href={`/${category.slug}/${article.slug}`} className="block mt-2">
-          <p className="text-xl font-semibold text-gray-900">
-            {article.title}
-          </p>
-          <p className="mt-3 text-base text-gray-500">
-           {article.description}
-          </p>
-        </a>
+      <div className="flex-shrink-0">
       </div>
-      <div className="mt-6 flex items-center">
-        <div className="flex-shrink-0">
-          <a href="#">
-            <span className="sr-only">Brian Ketelsen  </span>
-            <img className="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          </a>
-        </div>
-        <div className="ml-3">
-          <p className="text-sm font-medium text-gray-900">
-            <a href="#" className="hover:underline">
-              Brian
+      <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+        <div className="flex-1">
+          <p className="text-sm font-medium text-indigo-600">
+            <a href={article.data.category.toLowerCase()} className="hover:underline">
+              {article.data.category}
             </a>
           </p>
-          <div className="flex space-x-1 text-sm text-gray-500">
-            <time dateTime="2020-03-10">
-              Mar 10, 2020
+          <a href={`/${article.data.category.toLowerCase()}/${article.filePath.replace(/\.mdx?$/, '')}`} className="block mt-2">
+            <p className="text-xl font-semibold text-gray-900">
+              {article.data.title}
+            </p>
+            <p className="mt-3 text-base text-gray-500">
+              {article.data.description}
+            </p>
+            </a>
+        </div>
+        <div className="mt-6 flex items-center">
+          <div className="flex-shrink-0">
+            <a href="#">
+              <span className="sr-only">Brian Ketelsen  </span>
+              <Image
+        src="/img/main/bri.png"
+        alt="Brian Ketelsen"
+        height="40"
+        width="40"
+        objectFit="contain"
+        className="h-10 w-10 rounded-full object-contain"
+      />
+            </a>
+          </div>
+          <div className="ml-3">
+            <p className="text-sm font-medium text-gray-900">
+              <a href="#" className="hover:underline">
+                Brian
+            </a>
+            </p>
+            <div className="flex space-x-1 text-sm text-gray-500">
+              <time dateTime="2020-03-10">
+                Mar 10, 2020
             </time>
-            <span aria-hidden="true">
-              &middot;
+              <span aria-hidden="true">
+                &middot;
             </span>
-            <span>
-              4 min read
+              <span>
+                4 min read
             </span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
 
   );

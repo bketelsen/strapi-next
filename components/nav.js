@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { useContext } from "react";
 
-import { GlobalContext } from "../pages/_app";
-import { getStrapiMedia } from "../lib/media";
 import { useRouter } from "next/router";
 import { useState } from 'react'
 
@@ -11,7 +9,6 @@ import { useState } from 'react'
 const Navigation = (props) => {
     const [isOpen, setIsOpen] = useState(false)
 
-    const { global, categories } = useContext(GlobalContext);
     const router = useRouter();
     const activeStyle = "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium";
     const inactiveStyle = "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium";
@@ -25,20 +22,25 @@ const Navigation = (props) => {
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
-                            <img className="h-8 w-8" src={getStrapiMedia(global.favicon)} alt="Brian Ketelsen" />
+                            <img className="h-8 w-8" src="/vercel.svg" alt="Brian Ketelsen" />
                         </div>
                         <div className="hidden md:block">
                             <div className="ml-10 flex items-baseline space-x-4">
 
                                 <a href="/" className={router.asPath === "/" ? activeStyle : inactiveStyle}>Home</a>
-                                {categories.map((category) => {
-                                    return (
-                                        <Link key={category.id} as={`/${category.slug}`} href="/[id]">
-                                            <a className={router.asPath.includes(category.slug) ? activeStyle : inactiveStyle}>{category.name}</a>
-                                        </Link>
-                                    );
-                                })}
+                                <Link  href="/posts">
+                                    <a className={router.asPath.includes("posts") ? activeStyle : inactiveStyle}>Posts</a>
+                                </Link>
 
+                                <Link  href="/bytes">
+                                    <a className={router.asPath.includes("bytes") ? activeStyle : inactiveStyle}>Bytes</a>
+                                </Link>
+                                <Link  href="/projects">
+                                    <a className={router.asPath.includes("projects") ? activeStyle : inactiveStyle}>Projects</a>
+                                </Link>
+                                    <Link  href="/lpt">
+                                    <a className={router.asPath.includes("lpt") ? activeStyle : inactiveStyle}>LPT</a>
+                                </Link>
                                 <a href="/about" className={router.asPath === "/about" ? activeStyle : inactiveStyle}>About Me</a>
                             </div>
                         </div>
@@ -61,13 +63,7 @@ const Navigation = (props) => {
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     <a href="/" onClick={() => setIsOpen(!isOpen)} className={router.asPath === "/" ? mactiveStyle : minactiveStyle}>Home</a>
 
-                    {categories.map((category) => {
-                        return (
-                            <Link key={category.id} as={`/${category.slug}`} href="/[id]">
-                                <a onClick={() => setIsOpen(!isOpen)} className={router.asPath.includes(category.slug) ? mactiveStyle : minactiveStyle}>{category.name}</a>
-                            </Link>
-                        );
-                    })}
+  x
 
                     <a href="/about" onClick={() => setIsOpen(!isOpen)} className={router.asPath === "/about" ? mactiveStyle : minactiveStyle}>About Me</a>
                 </div>

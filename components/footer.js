@@ -1,10 +1,8 @@
 import Link from "next/link";
 import { useContext } from "react";
 
-import { GlobalContext } from "../pages/_app";
 
 const Footer = (props) => {
-    const { global, categories } = useContext(GlobalContext);
 
     return (
 
