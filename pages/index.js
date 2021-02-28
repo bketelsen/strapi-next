@@ -1,80 +1,37 @@
-import fs from 'fs'
-import matter from 'gray-matter'
-import Link from 'next/link'
-import path from 'path'
-import Category from "../components/category";
-import Articles from "../components/articles";
-import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils'
-import { lptFilePaths, LPT_PATH } from '../utils/mdxUtils'
-import { byteFilePaths, BYTES_PATH } from '../utils/mdxUtils'
-import { projectFilePaths, PROJECTS_PATH } from '../utils/mdxUtils'
+import Link from 'next/link';
 
-import DefaultLayout from "../layouts/default";
-const Home = ({ posts,projects,bytes,lpts }) => {
+import Container from '../components/Container';
+import BlogPost from '../components/BlogPost';
+import ProjectCard from '../components/ProjectCard';
+
+export default function Home() {
   return (
-    <DefaultLayout>
-
-      <div className="relative bg-gray-50 pt-0 pb-20 px-4 sm:px-6 lg:pt-0 lg:pb-28 lg:px-8">
-        <div className="absolute inset-0">
-          <div className="bg-white h-1/3 sm:h-2/3"></div>
-        </div>
-        <div className="relative max-w-7xl mx-auto">
-          <Category title={"Featured"} description={"Recent and Popular Content"} />
-          <Articles posts={posts} />
-          <Articles posts={bytes} />
-          <Articles posts={lpts} />
-          <Articles posts={projects} />
-        </div>
+    <Container>
+      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
+        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+         🤘🏻 Hey, I’m Brian
+        </h1>
+        <h2 className="prose text-gray-600 dark:text-gray-400 mb-16">
+          I'm a Cloud Developer Advocate at Microsoft, working on Open Source, cloud native, and emerging technologies.
+        </h2>
+        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
+          Featured Blog Posts
+        </h3>
+        <BlogPost
+          title="Everything I Know About Style Guides, Design Systems, and Component Libraries"
+          summary="A deep-dive on everything I've learned in the past year building style guides, design systems, component libraries, and their best practices."
+          slug="mdx"
+        />
+        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
+          Featured Projects
+        </h3>
+        <ProjectCard
+          title="React 2025"
+          description="Build and deploy a modern Jamstack application using the most popular open-source software."
+          href="https://react2025.com/"
+          icon="react2025"
+        />
       </div>
-
-    </DefaultLayout>
+    </Container>
   );
-};
-export async function getStaticProps() {
-  const posts = postFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(POSTS_PATH, filePath))
-    const { content, data } = matter(source)
-
-    return {
-      content,
-      data,
-      filePath,
-    }
-  })
-
-  const lpts = lptFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(LPT_PATH, filePath))
-    const { content, data } = matter(source)
-
-    return {
-      content,
-      data,
-      filePath,
-    }
-  })
-
-  const bytes = byteFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(BYTES_PATH, filePath))
-    const { content, data } = matter(source)
-
-    return {
-      content,
-      data,
-      filePath,
-    }
-  })
-
-  const projects = projectFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(PROJECTS_PATH, filePath))
-    const { content, data } = matter(source)
-
-    return {
-      content,
-      data,
-      filePath,
-    }
-  })
-  return { props: { posts: posts, lpts: lpts, bytes: bytes, projects: projects } }
 }
-
-export default Home;

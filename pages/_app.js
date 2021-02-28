@@ -1,24 +1,17 @@
-import Head from "next/head";
+import '@/styles/global.css';
 
-import App from "next/app";
-import LayoutWrapper from "../layouts/layout-wrapper";
-import '../styles/globals.css'
+import { MDXProvider } from '@mdx-js/react';
+import { ThemeProvider } from 'next-themes';
 
+import MDXComponents from '@/components/MDXComponents';
 
-
-const MyApp = ({ Component, pageProps }) => {
+export default function App({ Component, pageProps }) {
 
   return (
-    <>
-      <Head>
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-
-      </Head>
+    <ThemeProvider attribute="class">
+      <MDXProvider components={MDXComponents}>
         <Component {...pageProps} />
-    </>
+      </MDXProvider>
+    </ThemeProvider>
   );
-};
-
-
-
-export default MyApp;
+}

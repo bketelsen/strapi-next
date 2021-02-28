@@ -22,14 +22,14 @@ const Navigation = (props) => {
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
                         <div className="flex-shrink-0">
-                            <img className="h-8 w-8" src="/vercel.svg" alt="Brian Ketelsen" />
+                            <img className="h-8 w-8" src="/img/main/bri.png" alt="Brian Ketelsen" />
                         </div>
                         <div className="hidden md:block">
                             <div className="ml-10 flex items-baseline space-x-4">
 
                                 <a href="/" className={router.asPath === "/" ? activeStyle : inactiveStyle}>Home</a>
-                                <Link  href="/posts">
-                                    <a className={router.asPath.includes("posts") ? activeStyle : inactiveStyle}>Posts</a>
+                                <Link  href="/blog">
+                                    <a className={router.asPath.includes("blog") ? activeStyle : inactiveStyle}>Blog</a>
                                 </Link>
 
                                 <Link  href="/bytes">
@@ -41,7 +41,6 @@ const Navigation = (props) => {
                                     <Link  href="/lpt">
                                     <a className={router.asPath.includes("lpt") ? activeStyle : inactiveStyle}>LPT</a>
                                 </Link>
-                                <a href="/about" className={router.asPath === "/about" ? activeStyle : inactiveStyle}>About Me</a>
                             </div>
                         </div>
                     </div>
@@ -62,9 +61,6 @@ const Navigation = (props) => {
             <div className={isOpen ? "" : "hidden"} >
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     <a href="/" onClick={() => setIsOpen(!isOpen)} className={router.asPath === "/" ? mactiveStyle : minactiveStyle}>Home</a>
-
-  x
-
                     <a href="/about" onClick={() => setIsOpen(!isOpen)} className={router.asPath === "/about" ? mactiveStyle : minactiveStyle}>About Me</a>
                 </div>
                 <div className="pt-4 pb-3 border-t border-gray-700">
