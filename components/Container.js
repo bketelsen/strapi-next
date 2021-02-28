@@ -49,10 +49,10 @@ export default function Container(props) {
       <main
         id="skip"
       >
-       <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
 
-        {children}
-          </div>
+          {children}
+        </div>
         <Footer />
       </main>
     </div>
