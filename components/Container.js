@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import NextLink from 'next/link';
 
-import Footer from './Footer';
-import Navigation from './Nav';
+import Footer from '@/components/Footer';
+import Navigation from '@/components/Nav';
 export default function Container(props) {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
