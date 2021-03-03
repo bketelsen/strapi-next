@@ -18,8 +18,8 @@ export default function Home() {
           Featured Blog Posts
         </h3>
         <BlogPost
-          title="Everything I Know About Style Guides, Design Systems, and Component Libraries"
-          summary="A deep-dive on everything I've learned in the past year building style guides, design systems, component libraries, and their best practices."
+          title="Improving My Next.js MDX Blog"
+          summary="your mom"
           slug="mdx"
         />
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
